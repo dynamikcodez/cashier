@@ -1,0 +1,106 @@
+item_to_sell = ""
+money = int(0)
+coke = int(30)
+sprite = int(30)
+bigi = int(30)
+red_label = int(30)
+henessey = int(30)
+whiskey = int(30)
+brandy = int(30)
+
+fanta = int(30)
+soft_drinks = ["fanta", "coke", "sprite", "bigi"]
+alcohol = ["red label", "henessey", "whiskey", "brandy"]
+stock = [soft_drinks, alcohol]
+
+
+def cost_(amount, price=int(100)):
+    cost = int(amount * price)
+    print("that would cost, #", str(cost), "continue, yes/no")
+    choice = input()
+    if choice == "yes":
+        global money
+        new_money = money + cost
+        money = new_money
+    else:
+        print("okay then,")
+
+
+def sell():
+    global item_to_sell
+    item_to_sell = input("what would like to be bought? ")
+    if item_to_sell in soft_drinks:
+        ask = int(input("how many? "))
+        if item_to_sell == "fanta":
+            global fanta
+            if fanta - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif fanta - ask > 1:
+                fanta = fanta - ask
+                cost_(amount=ask, price=int(120))
+        if item_to_sell == "sprite":
+            global sprite
+            if sprite - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif sprite - ask > 1:
+                sprite = sprite - ask
+                cost_(amount=ask)
+        if item_to_sell == "coke":
+            global coke
+            if coke - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif coke - ask > 1:
+                coke = coke - ask
+                cost_(amount=ask, price=int(50))
+        if item_to_sell == "bigi":
+            global bigi
+            if bigi - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif bigi - ask > 1:
+                bigi = bigi - ask
+                cost_(amount=ask, price=90)
+    if item_to_sell in alcohol:
+        ask = int(input("how many? "))
+        if item_to_sell == "red label":
+            global red_label
+            if red_label - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif red_label - ask > 1:
+                red_label = red_label - ask
+                cost_(amount=ask, price=int(1200))
+        if item_to_sell == "henessey":
+            global henessey
+            if henessey - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif henessey - ask > 1:
+                henessey = henessey - ask
+                cost_(amount=ask)
+        if item_to_sell == "whiskey":
+            global whiskey
+            if whiskey - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif whiskey - ask > 1:
+                whiskey = whiskey - ask
+                cost_(amount=ask, price=int(50))
+        if item_to_sell == "brandy":
+            global brandy
+            if brandy - ask <= 1:
+                print("there isnt enough to sell that amount")
+            elif brandy - ask > 1:
+                brandy = brandy - ask
+                cost_(amount=ask, price=90)
+
+
+def veiw_():
+    print("balance = #", money)
+
+
+veiw_()
+
+
+menu_select = input("sell, update stock ")
+if menu_select == "sell":
+    while item_to_sell != "nothing":
+        sell()
+        veiw_()
+# ill add update later
