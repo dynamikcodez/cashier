@@ -1,0 +1,33 @@
+class Drinks:
+    def __init__(self, name, price, amount):
+        self.name = name
+        self.price = price
+        self.amount = amount 
+
+
+    def Price_change(self,calc_price):
+        self.price = calc_price
+        
+
+    def show(self):
+        print(self.name)
+        print(self.price)
+        print(self.amount)
+
+drinks_dic = {}
+
+def add_():
+    drink_to_add = input("What drink would you like to add? ")  
+    drinks_dic[str(drink_to_add)] = Drinks(str(drink_to_add), 10, 20)  
+    print(drinks_dic[drink_to_add].price) 
+def Price_change_prompt():
+    d_price_to_change = input("what drink price do you want changed? ")
+    newprice = input("What is the new price? > ")
+    drinks_dic[str(d_price_to_change)].price = newprice
+    print(drinks_dic)
+    print(drinks_dic[d_price_to_change].price)
+     
+
+
+add_()  
+Price_change_prompt()
